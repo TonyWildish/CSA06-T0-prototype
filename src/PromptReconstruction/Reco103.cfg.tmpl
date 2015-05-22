@@ -1,0 +1,24 @@
+process R3 = {
+
+  service = Tracer {}
+  include "Configuration/Examples/data/RECO_onlyCkf_noFrontier.cff"
+  include "FWCore/MessageLogger/data/MessageLogger.cfi"
+  include "Configuration/CompatibilityFragments/data/CompatibilityWith081.cff"
+  service = Timing {}
+  service = SimpleMemoryCheck {
+     untracked int32 ignoreTotal = 1 # default is one
+  } 
+  source = PoolSource {
+          untracked vstring fileNames = {'T0_INPUT_FILE'}
+          untracked int32 maxEvents = T0_MAX_EVENTS
+  }
+  include "Configuration/EventContent/data/FEVTOutput.cff"
+
+  module RECO = PoolOutputModule {
+          untracked string fileName = 'file:T0_OUTPUT_FILE'
+          untracked uint32 commitInterval = 1
+          using FEVTOutput
+  } 
+  path p1 = {reconstruction}
+  endpath outpath = { RECO}	
+}

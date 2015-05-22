@@ -1,0 +1,23 @@
+#
+# $Id: AOD.cfg.tmpl,v 1.1 2006/10/21 17:18:27 wildish Exp $
+#
+# cfg file for producing AODSIM from CSA06 FEVT files
+#
+
+process A = {
+
+  include "FWCore/MessageLogger/data/MessageLogger.cfi"
+  service = AdaptorConfig {}
+  source = PoolSource {
+     untracked vstring fileNames = {'T0_INPUT_FILE'}
+     untracked int32 maxEvents = T0_MAX_EVENTS
+  }
+  include "Configuration/EventContent/data/AODSIMOutput.cff"
+
+  module AODSIM = PoolOutputModule {
+     untracked string fileName = 'aodsim.AOD.root'
+     untracked uint32 commitInterval = 1
+     using AODSIMOutput
+  } 
+  endpath outpath = {AODSIM}	
+}

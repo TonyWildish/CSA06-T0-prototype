@@ -1,0 +1,110 @@
+process P = {
+
+include "Configuration/Examples/data/MessageLogger.cfi"
+#  service = MessageLogger {
+#    untracked vstring destinations = { "cout" }
+#    untracked PSet cout    = {
+#      untracked string threshold = "INFO"
+#      untracked bool noLineBreaks = true
+#    }
+#  }
+
+  include "Configuration/Examples/data/AlCaReco.cff"
+  include "Configuration/EventContent/data/AlCaRecoOutput.cff"
+
+  source = PoolSource { 
+    untracked vstring fileNames = { 
+	'T0_INPUT_FILE'
+    }
+    untracked int32 maxEvents   = T0_MAX_EVENTS
+  }
+
+# Tracker Alignment
+
+# AlCaReco for track based alignment using ZMuMu events
+  module CSA06ZMuMu = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.csa06zmumu.root"
+    using OutCSA06ZMuMu
+  }
+
+# AlCaReco for track based alignment using MinBias events
+  module CSA06MinBias = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.csa06minbias.root"
+    using OutCSA06MinBias
+  }
+
+# ECAL Calibration
+
+# ECAL calibration with phi symmetry 
+  module AlcastreamEcalPhiSym = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.ecalphisym.root"
+    using alcastreamEcalPhiSymOutput
+  }
+
+# ECAL calibration with isol. electrons
+  module AlcastreamElectron = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.ecalelectron.root"
+    using alcastreamElectronOutput
+  }
+
+# HCAL Calibration
+
+# HCAL calibration with dijets
+  module AlcastreamHcalDijets = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.hcaldijets.root"
+    using alcastreamHcalDijetsOutput
+  }
+
+# HCAL calibration with isolated tracks
+  module AlcastreamHcalIsotrk = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.hcalisotrk.root"
+    using alcastreamHcalIsotrkOutput
+  }
+
+# HCAL calibration with min.bias
+  module AlcastreamHcalMinbias = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.hcalminbias.root"
+    using alcastreamHcalMinbiasOutput
+  }
+
+# Muon Alignment
+#  module CSA06ZMuMuMuon = PoolOutputModule {
+#    untracked string fileName = "file:alcareco.csa06zmumumuon.root"
+#    using OutCSA06ZMuMu_muon
+#  }
+
+# full event output (only for first event, for debugging) 
+  module Full = PoolOutputModule {
+    untracked string fileName = "file:reco.root"
+    untracked PSet SelectEvents = {
+      vstring SelectEvents = { "pathFull" }
+    }
+  }
+
+  module processOneEvent = StopAfterNEvents { int32 maxEvents = 1 }
+
+# NOTE: in order to (de)select certain streams, both the relevant path
+# as well as the entry in endpath must be (un)commented
+
+  path pathCSA06ZMuMu = { seqCSA06ZMuMu }
+  path pathCSA06MinBias = { seqCSA06MinBias }
+  path pathAlcastreamElectron = { seqAlcastreamElectron }
+  path pathAlcastreamEcalPhiSym = { seqAlcastreamEcalPhiSym }
+  path pathAlcastreamHcalDijets = { seqAlcastreamHcalDijets }
+  path pathAlcastreamHcalIsotrk = { seqAlcastreamHcalIsotrk }
+  path pathAlcastreamHcalMinbias = { seqAlcastreamHcalMinbias }  
+#  path pathCSA06ZMuMu_muon = { seqCSA06ZMuMu_muon }
+#  path pathFull = { processOneEvent }
+
+  endpath e = {
+    CSA06ZMuMu,
+    CSA06MinBias,
+    AlcastreamElectron,
+    AlcastreamEcalPhiSym, 
+    AlcastreamHcalDijets, 
+    AlcastreamHcalIsotrk, 
+    AlcastreamHcalMinbias
+#    CSA06ZMuMuMuon
+#    Full
+  }
+}

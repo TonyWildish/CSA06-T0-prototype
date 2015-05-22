@@ -1,0 +1,50 @@
+new config entry: SelectStream =  2 
+new config entry: OpenFileURL = /tmp/innocent/crap1 
+new config entry: OpenFileURL = /tmp/innocent/crap2 
+new config entry: 
+new config entry: IndexFile = /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.0.0.10.21f8a2c3e0594cb29e3564ab7caad5f1.idx 
+new config entry: IndexFile = /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.0.1.10.84d3b86328ba4a5aa2dbd89a81ddc0ca.idx /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.4.4.10.cfd3622815bd4b0aaaee672d39d222c1.idx 
+new config entry: 
+new config entry: CloseFileURL = /tmp/innocent/crap2 
+new config entry: 
+new config entry: # a comment with a = in it....
+new config entry: 
+new config entry: OpenFileURL = /tmp/innocent/crap3 
+new config entry: 
+new config entry: IndexFile = /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.4.5.10.11b4a19987d74e9ca6e1925b27bf0405.idx 
+new config entry: IndexFile = /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.4.6.10.0c8be3aee848465ca4c6720e68c66c96.idx
+new config entry: 
+new config entry: CloseFileURL = /tmp/innocent/crap3 
+new config entry: CloseFileURL = /tmp/innocent/crap1 
+new config entry: 
+
+parsing config file /afs/cern.ch/user/i/innocent/w1/CMSSW_0_7_1/src/T0/Repacker/test/ex2.config completed 
+
+
+Repacker 9.16457ms: set stream to 2
+Repacker 9.41501ms: opening output file /tmp/innocent/crap1
+Repacker 35.8828ms: opening output file /tmp/innocent/crap2
+Repacker 51.1331ms: reading from index file /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.0.0.10.21f8a2c3e0594cb29e3564ab7caad5f1.idx
+Repacker 53.9628ms: input event file is rfio:lxcmsa:/data2/wildish/T0/indices/RAW.0.0.10.21f8a2c3e0594cb29e3564ab7caad5f1.raw
+Repacker 1171.05ms: Read 9095168 bytes from file rfio:lxcmsa:/data2/wildish/T0/indices/RAW.0.0.10.21f8a2c3e0594cb29e3564ab7caad5f1.raw
+Repacker 1173.47ms: reading from index file /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.0.1.10.84d3b86328ba4a5aa2dbd89a81ddc0ca.idx
+Repacker 1174.64ms: input event file is rfio:lxcmsa:/data2/wildish/T0/indices/RAW.0.1.10.84d3b86328ba4a5aa2dbd89a81ddc0ca.raw
+Repacker 1847.24ms: Read 5455872 bytes from file rfio:lxcmsa:/data2/wildish/T0/indices/RAW.0.1.10.84d3b86328ba4a5aa2dbd89a81ddc0ca.raw
+Repacker 1849.3ms: closing output file /tmp/innocent/crap2; wrote 14551040 bytes, checksum 2036794334
+Repacker 1849.91ms: opening output file /tmp/innocent/crap3
+Repacker 1862.45ms: reading from index file /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.4.5.10.11b4a19987d74e9ca6e1925b27bf0405.idx
+Repacker 1863.71ms: input event file is rfio:lxcmsa:/data2/wildish/T0/indices/RAW.4.5.10.11b4a19987d74e9ca6e1925b27bf0405.raw
+Repacker 3083.6ms: Read 8822784 bytes from file rfio:lxcmsa:/data2/wildish/T0/indices/RAW.4.5.10.11b4a19987d74e9ca6e1925b27bf0405.raw
+Repacker 3085.64ms: reading from index file /afs/cern.ch/user/i/innocent/scratch0/t0tests/indexfiles/idx.4.6.10.0c8be3aee848465ca4c6720e68c66c96.idx
+Repacker 3086.92ms: input event file is rfio:lxcmsa:/data2/wildish/T0/indices/RAW.4.6.10.0c8be3aee848465ca4c6720e68c66c96.raw
+Repacker 4017.63ms: Read 5612544 bytes from file rfio:lxcmsa:/data2/wildish/T0/indices/RAW.4.6.10.0c8be3aee848465ca4c6720e68c66c96.raw
+Repacker 4022.33ms: closing output file /tmp/innocent/crap3; wrote 14435328 bytes, checksum 397678996
+Repacker 4023ms: closing output file /tmp/innocent/crap1; wrote 28986368 bytes, checksum 1947984372
+
+stats:
+file/close=3/3/0MB/0.0194829ms; file/construct=8/8/0MB/0.0619959ms; file/destruct=8/8/0MB/0.0945362ms; file/position=0/0/0MB/0ms; file/read=5/5/0.00209618MB/0.102419ms; file/write=40/40/55.2871MB/366.081ms; rfio/close=4/4/0MB/6.15789ms; rfio/construct=4/4/0MB/0.0186931ms; rfio/destruct=4/4/0MB/0.0767632ms; rfio/position=20/20/0MB/0.367565ms; rfio/read=20/20/27.6436MB/3192.73ms; rfio/write=0/0/0MB/0ms
+
+wrote 14551040 bytes to /tmp/innocent/crap2 , checksum 2036794334
+wrote 14435328 bytes to /tmp/innocent/crap3 , checksum 397678996
+wrote 28986368 bytes to /tmp/innocent/crap1 , checksum 1947984372
+

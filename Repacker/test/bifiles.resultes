@@ -1,0 +1,74 @@
+threads on
+
+file/close=3/3/0MB/0.0156637ms; file/construct=4/4/0MB/0.0286675ms; file/destruct=4/4/0MB/0.0457647ms; file/position=0/0/0MB/0ms; file/read=1/1/0.000570297MB/0.0161815ms; file/write=788/788/1160.16MB/12864.4ms; rfio/close=4/4/0MB/24.4848ms; rfio/construct=8/8/0MB/0.0253792ms; rfio/destruct=8/8/0MB/2.75883ms; rfio/position=394/394/0MB/3.63481ms; rfio/read=398/398/580.157MB/27389.8ms; rfio/write=0/0/0MB/0ms
+
+wrote 310897664 bytes to /tmp/innocent/bigcrap2 , checksum 2772970596
+wrote 297359360 bytes to /tmp/innocent/bigcrap3 , checksum 1466298126
+wrote 608257024 bytes to /tmp/innocent/bigcrap1 , checksum 3988925246
+3.880u 6.650s 0:34.93 30.1%     0+0k 0+0io 1171pf+0w
+
+stats:
+file/close=3/3/0MB/0.0160008ms; file/construct=4/4/0MB/0.0375656ms; file/destruct=4/4/0MB/0.0490544ms; file/position=0/0/0MB/0ms; file/read=1/1/0.000571251MB/0.0310848ms; file/write=788/788/1160.16MB/16060ms; rfio/close=4/4/0MB/3.82107ms; rfio/construct=8/8/0MB/0.0283816ms; rfio/destruct=8/8/0MB/2.67482ms; rfio/position=394/394/0MB/4.09479ms; rfio/read=398/398/580.157MB/11227.2ms; rfio/write=0/0/0MB/0ms
+
+wrote 310897664 bytes to /tmp/innocent/bigcrap2 , checksum 2772970596
+wrote 297359360 bytes to /tmp/innocent/bigcrap3 , checksum 1466298126
+wrote 608257024 bytes to /tmp/innocent/bigcrap1 , checksum 3988925246
+
+4.130u 7.760s 0:23.01 51.6%     0+0k 0+0io 1171pf+0w
+
+threads off
+threads on
+==========
+
+stats:
+file/close=3/3/0MB/0.0130037ms; file/construct=4/4/0MB/0.0336727ms; file/destruct=4/4/0MB/0.0465939ms; file/position=0/0/0MB/0ms; file/read=1/1/0.000571251MB/0.0160008ms; file/write=2434/2434/3647.92MB/43847.8ms; rfio/close=4/4/0MB/116.194ms; rfio/construct=8/8/0MB/0.0265857ms; rfio/destruct=8/8/0MB/2.75258ms; rfio/position=1217/1217/0MB/20.7581ms; rfio/read=1221/1221/1824.2MB/100734ms; rfio/write=0/0/0MB/0ms
+
+wrote 935890944 bytes to /tmp/innocent/bigcrap2 , checksum 1229829538
+wrote 976668672 bytes to /tmp/innocent/bigcrap3 , checksum 2099353324
+wrote 1912559616 bytes to /tmp/innocent/bigcrap1 , checksum 173056885
+
+11.900u 21.660s 2:06.94 26.4%   0+0k 0+0io 1172pf+0w
+
+threads off
+==========
+
+stats:
+file/close=3/3/0MB/0.0132819ms; file/construct=4/4/0MB/0.0344643ms; file/destruct=4/4/0MB/0.0465787ms; file/position=0/0/0MB/0ms; file/read=1/1/0.000569344MB/0.0301998ms; file/write=2434/2434/3647.92MB/52914.4ms; rfio/close=4/4/0MB/113.024ms; rfio/construct=8/8/0MB/0.0237489ms; rfio/destruct=8/8/0MB/2.79731ms; rfio/position=1217/1217/0MB/14.6909ms; rfio/read=1221/1221/1824.2MB/102541ms; rfio/write=0/0/0MB/0ms
+
+wrote 935890944 bytes to /tmp/innocent/bigcrap2 , checksum 1229829538
+wrote 976668672 bytes to /tmp/innocent/bigcrap3 , checksum 2099353324
+wrote 1912559616 bytes to /tmp/innocent/bigcrap1 , checksum 173056885
+
+11.000u 20.600s 2:46.49 18.9%   0+0k 0+0io 1170pf+0w
+
+-------------------------------------------------------------------------------------------
+
+threads on
+==========
+
+stats:
+file/close=3/3/0MB/0.0148869ms; file/construct=4/4/0MB/0.0346657ms; file/destruct=4/4/0MB/0.048488ms; file/position=0/0/0MB/0ms; file/read=1/1/0.000570297MB/0.0300828ms; file/write=2668/2668/4001.21MB/83979.3ms; rfio/close=4/4/0MB/109.094ms; rfio/construct=8/8/0MB/0.0268766ms; rfio/destruct=8/8/0MB/2.90308ms; rfio/position=1334/1334/0MB/33.2893ms; rfio/read=1338/1338/2000.87MB/92789.7ms; rfio/write=0/0/0MB/0ms
+
+wrote 1059019776 bytes to /tmp/innocent/bigcrap2 , checksum 1280656709
+wrote 1038767104 bytes to /tmp/innocent/bigcrap3 , checksum 2603241058
+wrote 2097786880 bytes to /tmp/innocent/bigcrap1 , checksum 563241207
+
+12.760u 23.910s 2:36.05 23.4%   0+0k 0+0io 1172pf+0w
+
+threads off
+==========
+
+stats:
+file/close=3/3/0MB/0.0135185ms; file/construct=4/4/0MB/0.0364742ms; file/destruct=4/4/0MB/0.0457353ms; file/position=0/0/0MB/0ms; file/read=1/1/0.00056839MB/0.0297322ms; file/write=2668/2668/4001.21MB/75420.9ms; rfio/close=4/4/0MB/147.658ms; rfio/construct=8/8/0MB/0.0236287ms; rfio/destruct=8/8/0MB/2.84092ms; rfio/position=1334/1334/0MB/16.7139ms; rfio/read=1338/1338/2000.87MB/110479ms; rfio/write=0/0/0MB/0ms
+
+wrote 1059019776 bytes to /tmp/innocent/bigcrap2 , checksum 1280656709
+wrote 1038767104 bytes to /tmp/innocent/bigcrap3 , checksum 2603241058
+wrote 2097786880 bytes to /tmp/innocent/bigcrap1 , checksum 563241207
+
+12.490u 21.860s 3:18.22 17.3%   0+0k 0+0io 1170pf+0w
+
+
+
+
+
+

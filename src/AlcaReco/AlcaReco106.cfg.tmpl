@@ -1,0 +1,128 @@
+process P = {
+
+include "Configuration/Examples/data/MessageLogger.cfi"
+# service = MessageLogger {
+#   untracked vstring destinations = { "cout" }
+#   untracked PSet cout    = {
+#     untracked string threshold = "INFO"
+#     untracked bool noLineBreaks = true
+#   }
+# }
+
+  include "Configuration/Examples/data/AlCaReco.cff"
+  include "Configuration/EventContent/data/AlCaRecoOutput.cff"
+
+  source = PoolSource { 
+    untracked vstring fileNames = { 
+        'T0_INPUT_FILE'
+    }
+    untracked int32 maxEvents   = T0_MAX_EVENTS
+  }
+
+  service = AdaptorConfig {}
+
+# Tracker Alignment
+
+# AlCaReco for track based alignment using ZMuMu events
+  module CSA06ZMuMu = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.csa06zmumu.root"
+    untracked string filterName = "CSA06ZMuMu"
+    untracked string dataTier = "ALCARECO"
+    using OutCSA06ZMuMu
+  }
+
+# AlCaReco for track based alignment using MinBias events
+  module CSA06MinBias = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.csa06minbias.root"
+    untracked string filterName = "CSA06MinBias"
+    untracked string dataTier = "ALCARECO"
+    using OutCSA06MinBias
+  }
+
+# ECAL Calibration
+
+# ECAL calibration with phi symmetry 
+  module AlcastreamEcalPhiSym = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.ecalphisym.root"
+    untracked string filterName = "alcastreamEcalPhiSym"
+    untracked string dataTier = "ALCARECO"
+    using alcastreamEcalPhiSymOutput
+  }
+
+# ECAL calibration with isol. electrons
+  module AlcastreamElectron = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.ecalelectron.root"
+    untracked string filterName = "alcastreamElectron"
+    untracked string dataTier = "ALCARECO"
+    using alcastreamElectronOutput
+  }
+
+# HCAL Calibration
+
+# HCAL calibration with dijets
+  module AlcastreamHcalDijets = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.hcaldijets.root"
+    untracked string filterName = "alcastreamHcalDijets"
+    untracked string dataTier = "ALCARECO"
+    using alcastreamHcalDijetsOutput
+  }
+
+# HCAL calibration with isolated tracks
+  module AlcastreamHcalIsotrk = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.hcalisotrk.root"
+    untracked string filterName = "alcastreamHcalIsotrk"
+    untracked string dataTier = "ALCARECO"
+    using alcastreamHcalIsotrkOutput
+  }
+
+# HCAL calibration with min.bias
+  module AlcastreamHcalMinbias = PoolOutputModule { 
+    untracked string fileName = "file:alcareco.hcalminbias.root"
+    untracked string filterName = "alcastreamHcalMinbias"
+    untracked string dataTier = "ALCARECO"
+    using alcastreamHcalMinbiasOutput
+  }
+
+# Muon Alignment
+  module CSA06ZMuMuMuon = PoolOutputModule {
+    untracked string fileName = "file:alcareco.csa06zmumumuon.root"
+    untracked string filterName = "CSA06ZMuMu_muon"
+    untracked string dataTier = "ALCARECO"
+    using OutCSA06ZMuMu_muon
+  }
+
+# NOTE: in order to (de)select certain streams, both the relevant path
+# as well as the entry in endpath must be (un)commented
+#
+#  Stream       Dataset: | Z->\mu\mu | minBias | Jets | W->e\nu
+# -----------------------+-----------+---------+------+---------
+#  CSA06ZMuMu            |      X    |         |      |
+#  CSA06MinBias          |           |    X    |      |
+#  AlcastreamElectron    |           |         |      |    X
+#  AlcastreamEcalPhiSym  |           |    X    |      |
+#  AlcastreamHcalDijets  |           |         |   X  |
+#  AlcastreamHcalIsotrk  |           |    X    |   X  |
+#  AlcastreamHcalMinbias |           |    X    |      |
+#  CSA06ZMuMu_muon       |      X    |         |      |
+
+
+  path pathCSA06ZMuMu = { seqCSA06ZMuMu }
+  path pathCSA06MinBias = { seqCSA06MinBias }
+  path pathAlcastreamElectron = { seqAlcastreamElectron }
+  path pathAlcastreamEcalPhiSym = { seqAlcastreamEcalPhiSym }
+  path pathAlcastreamHcalDijets = { seqAlcastreamHcalDijets }
+  path pathAlcastreamHcalIsotrk = { seqAlcastreamHcalIsotrk }
+  path pathAlcastreamHcalMinbias = { seqAlcastreamHcalMinbias }  
+  path pathCSA06ZMuMu_muon = { seqCSA06ZMuMu_muon }
+
+  endpath e = {
+    CSA06ZMuMu,
+    CSA06MinBias,
+    AlcastreamElectron,
+    AlcastreamEcalPhiSym, 
+    AlcastreamHcalDijets, 
+    AlcastreamHcalIsotrk, 
+    AlcastreamHcalMinbias,
+    CSA06ZMuMuMuon
+  }
+}
