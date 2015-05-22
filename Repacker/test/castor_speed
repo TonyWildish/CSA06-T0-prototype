@@ -1,2 +1,0 @@
- setenv STAGER_TRACE 3 ; time cms_anycp rfio:/castor/cern.ch/cms/t0test/vin/tmp/bigcrap1 /dev/null
-

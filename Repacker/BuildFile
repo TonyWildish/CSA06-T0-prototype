@@ -1,9 +1,0 @@
-<export>
- <lib name=T0Repacker>
- <use name=Utilities/StorageFactory>
- <use name=boost>
-</export>
-
- <use name=Utilities/StorageFactory>
- <use name=boost>
-

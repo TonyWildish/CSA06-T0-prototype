@@ -1,6 +1,0 @@
-<use name=T0/Repacker>
-
-<bin file=simpleRepacker.cpp name=t0SimpleRepacker></bin>
-<bin file=Repacker.cpp name=t0Repacker></bin>
-<bin file=FakeLoad.cpp name=t0FakeLoad></bin>
-<bin file=t0cksum.cpp name=t0cksum></bin>
